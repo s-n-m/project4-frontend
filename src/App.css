@@ -1,0 +1,35 @@
+.logoStartPage{
+    margin: 3% 3% 3% 9%;
+    width: 1000px;
+}
+.towButtonStartPage{
+    margin: 2% auto 2% 45%;
+}
+
+.pucHomeSing{
+    width: 400px;
+    height: 500px;
+}
+
+.formSingn{
+    width: 400px !important;
+    margin: auto !important;
+}
+.textUpInput{
+    margin: 1% auto 1% 21%;
+}
+.buttonPageSing{
+        margin: 3% auto auto 45%;
+}
+.backButtonSing{
+    margin: 0% 1% 0% 37%;
+}
+
+.butT2wo{
+    background-color: red !important;
+    border: 1px solid red !important;
+    /* color Text */
+    color: #00ff2f !important;
+    /* poder coler */
+    border-color: #0087ff !important;
+}

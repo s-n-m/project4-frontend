@@ -7,7 +7,12 @@ import SignupForm from "./components/authForm.js/SignupForm";
 import ChangePasswordForm from "./components/authForm.js/ChangePasswordForm";
 import Home from "./components/Home";
 import Profile from "./components/Profile";
+import Addpost from "/Users/weekend/mid/week-12/project4-frontend/react-auth-template/src/components/authForm.js/addPost.js"
+
 class App extends Component {
+  constuctor() {
+    this.routeChange = this.routeChange.bind(this);
+  }
   state = {
     user: null,
     activePage: "home"
@@ -19,7 +24,15 @@ class App extends Component {
       this.setState({ user });
     }
   }
-
+  //my change
+  handleClick() {
+    console.log('Click happened');
+  }
+  routeChange() {
+    let path = "src/components/authForm.js/SigninForm.js";
+    this.props.history.push(path);
+  }
+  //end 
   changeActivePage = activePage => {
     this.setState({ activePage });
   };
@@ -27,6 +40,15 @@ class App extends Component {
     this.setState({ user: getUser() });
     this.changeActivePage("profile");
   };
+  onSignIn = () => {
+    this.setState({ user: getUser() });
+    this.changeActivePage("sign-in");
+  };
+  onSignUp = () => {
+    this.setState({ user: getUser() });
+    this.changeActivePage("sign-up");
+  };
+
   onSignout = () => {
     console.log("sigin out");
     this.setState({ user: null });
@@ -39,30 +61,31 @@ class App extends Component {
         <Nav
           user={user}
           changeActivePage={this.changeActivePage}
-          onSignout={this.onSignout}
-        />
-
-        <div className="container">
-          {activePage === "home" ? <Home /> : ""}
+          onSignout={this.onSignout} 
+          activePage={activePage} />
+         <div className="container">
+          {activePage === "home" ? <Home onSignIn={this.onSignIn} onSignUp={this.onSignUp}/> : ""}
           {activePage === "sign-in" ? (
-            <SigninForm onSignin={this.onSignin} />
+            <SigninForm onSignin={this.onSignin} changeActivePage={this.changeActivePage}/>
           ) : (
             ""
           )}
           {activePage === "sign-up" ? (
-            <SignupForm onSignin={this.onSignin} />
+            <SignupForm onSignin={this.onSignin} changeActivePage={this.changeActivePage}/>
           ) : (
             ""
           )}
           {activePage === "change-password" ? (
-            <ChangePasswordForm changeActivePage={this.changeActivePage} />
+            <ChangePasswordForm changeActivePage={this.changeActivePage}  />
           ) : (
             ""
           )}
           {activePage === "profile" ? <Profile /> : ""}
+          {activePage === "post" ? <Addpost /> : ""}
         </div>
       </div>
-    );
+      );
+      
   }
 }
 

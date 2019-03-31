@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import apiUrl from "../../apiConfig";
 import { setUser } from "../../services/AuthService";
+import homeSing from "/Users/weekend/mid/week-12/project4-frontend/react-auth-template/src/imges/testgif.gif";
+
 class SignupForm extends Component {
   state = {
     formData: {
@@ -12,6 +14,8 @@ class SignupForm extends Component {
   };
 
   handleLoginRequest = user => {
+
+    console.log(user)
     let url = `${apiUrl}/sign-up`;
 
     fetch(url, {
@@ -25,7 +29,8 @@ class SignupForm extends Component {
     })
       .then(res => res.json())
       .then(data => {
-        if (data.error) this.setState({ err: data.error });
+        if (data.status > 299)
+          this.setState({ err: data.message });
         else {
           setUser(data);
           this.props.onSignin();
@@ -47,41 +52,55 @@ class SignupForm extends Component {
   render() {
     return (
       <div className="pt-5 mt-5">
-        <h1>PLEASE SIGNUP</h1>
         {this.state.err ? (
           <div className="alert alert-warning"> {this.state.err} </div>
         ) : (
           ""
         )}
-        <form onSubmit={this.handleSubmit}>
+        <div className="container">
+          <div className="row">
+            <img className="col-sm" className="pucHomeSing" src={homeSing} alt="Logo" />
+            <form className="col-sm" onSubmit={this.handleSubmit}>
           <div className="form-group">
-            <label>email </label>
+                <label className="textUpInput">Email </label>
             <input
               name="email"
-              className="form-control"
+              className="form-control formSingn"
               onChange={this.handleChange}
             />
-            <label>Password</label>
+                <label className="textUpInput">Password</label>
             <input
               name="password"
-              className="form-control"
+              className="form-control formSingn"
               type="password"
               onChange={this.handleChange}
             />
-
-            <label>Password Confirmation</label>
+              <label className="textUpInput">Password Confirmation</label>
             <input
               name="password_confirmation"
-              className="form-control"
+              className="form-control formSingn"
               type="password"
               onChange={this.handleChange}
             />
+                <label className="textUpInput">Phone Number</label>
+                <input
+                  name="phine_number"
+                  className="form-control formSingn"
+                  type="phone_number"
+                  onChange={this.handleChange}
+                />
           </div>
+        
 
-          <button type="submit" className="btn btn-primary">
-            Login
-          </button>
+          <button onClick={() => this.props.changeActivePage("home")} className="btn btn-primary backButtonSing">Back</button>
+          <button type="submit" className="btn btn-primary ">Register</button>
+              
         </form>
+
+             
+
+      </div>
+        </div>
       </div>
     );
   }
