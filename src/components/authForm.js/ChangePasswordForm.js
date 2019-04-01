@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import apiUrl from "../../apiConfig";
 import { getUser } from "../../services/AuthService";
+import picChangePassowrd from "../../imges/sucrity.gif"
 class ChangePasswordForm extends Component {
   state = {
     formData: {
@@ -43,10 +44,12 @@ class ChangePasswordForm extends Component {
 
   render() {
     return (
-      <div className="pt-5 mt-5">
-        <h1>Change Password</h1>
-
-        <form onSubmit={this.handleSubmit}>
+      <div class="container formChangPas">
+        <div class="row">
+          <img class="col-sm" className="pucHomeSing" src={picChangePassowrd} alt="Logo" />
+      <div className="pt-5 mt-5  textCangePass">
+            <h1 className="changeH1">Change Password</h1>
+            <form class="col-sm "onSubmit={this.handleSubmit}>
           <div className="form-group">
             <label>Old Password</label>
             <input
@@ -64,10 +67,11 @@ class ChangePasswordForm extends Component {
             />
           </div>
 
-          <button type="submit" className="btn btn-primary">
-            Login
-          </button>
+              <button type="submit" className="btn btn-primary butChang">Change Password</button>
+          
         </form>
+      </div>
+      </div>
       </div>
     );
   }

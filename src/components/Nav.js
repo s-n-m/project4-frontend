@@ -1,18 +1,6 @@
 import React from "react";
 
-const authenticatedOptions = (changeActivePage, onSignout) => (
-  <React.Fragment>
-    <li
-      className="nav-item"
-      onClick={() => changeActivePage("change-password")}
-    >
-      <div className="nav-link">Change Password</div>
-    </li>
-    <li className="nav-item" onClick={() => onSignout()}>
-      <div className="nav-link">Sign Out</div>
-    </li>
-  </React.Fragment>
-);
+
 
 const unauthenticatedOptions = changeActivePage => (
   <React.Fragment>
@@ -27,20 +15,40 @@ const unauthenticatedOptions = changeActivePage => (
 
 const alwaysOptions = changeActivePage => (
   <React.Fragment>
-    <li className="nav-item" onClick={() => changeActivePage("home")}>
-      <div className="nav-link">Home</div>
+    <li className="nav-item" onClick={() => changeActivePage("dashboard")}>
+      <div className="nav-link">Dashboard</div>
     </li>
-    <li className="nav-item" onClick={() => changeActivePage(" post")}>
+    <li className="nav-item" onClick={() => changeActivePage("addPosts")}>
       <div className="nav-link">Add post</div>
     </li>
+    <li className="nav-item" onClick={() => changeActivePage("testfile")}>
+      <div className="nav-link">Testfile</div>
+    </li>
+    <li className="nav-item" onClick={() => changeActivePage("home")}>
+      <div className="nav-link">Sign Out</div>
+      {/* 🔐 */}
+    </li>
+  </React.Fragment>
+);
+const authenticatedOptions = (changeActivePage, onSignout) => (
+  <React.Fragment>
+    <li
+      className="nav-item"
+      onClick={() => changeActivePage("change-password")}
+    >
+      <div className="nav-link">Change Password</div>
+    </li>
+    {/* <li className="nav-item" onClick={() => onSignout()}>
+      <div className="nav-link">Sign Out</div>
+    </li> */}
   </React.Fragment>
 );
 
 const Nav = ({ user, changeActivePage, onSignout, activePage }) => {
-  // && activePage !== "profile" 
-  if (activePage !== "home" && activePage !== "sign-in" && activePage !== "sign-up" ){
+  // && activePage !== "dashboard"
+  if (activePage !== "home" && activePage !== "sign-in" && activePage !== "sign-up"  ){
     return <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <div className="navbar-brand">Navbar</div>
+      <div className="navbar-brand">MASKN</div>
       <button
         className="navbar-toggler"
         type="button"
@@ -67,6 +75,9 @@ const Nav = ({ user, changeActivePage, onSignout, activePage }) => {
         </ul>
       </div>
     </nav>
+
+   
+
   }else{
     return null;
   }

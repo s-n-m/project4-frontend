@@ -1,9 +1,9 @@
 import React from "react";
-import imges from "/Users/weekend/mid/week-12/project4-frontend/react-auth-template/src/imges/mmm.png";
+import imges from "/Users/weekend/mid/week-12/project4-frontend/react-auth-template/src/imges/mm2m.png";
 
 class Home extends React.Component {
     render(){
-        return (
+        return (   
             <div>
                 <div>
                     <img className="logoStartPage" src={imges} alt="Logo" />
