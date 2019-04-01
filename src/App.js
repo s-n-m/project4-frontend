@@ -6,7 +6,8 @@ import SigninForm from "./components/authForm.js/SigninForm";
 import SignupForm from "./components/authForm.js/SignupForm";
 import ChangePasswordForm from "./components/authForm.js/ChangePasswordForm";
 import Home from "./components/Home";
-import Profile from "./components/Profile";
+import Dashboard from "./components/Dashboard";
+import Testfile from "./components/testfile";
 import Addpost from "/Users/weekend/mid/week-12/project4-frontend/react-auth-template/src/components/authForm.js/addPost.js"
 
 class App extends Component {
@@ -38,7 +39,7 @@ class App extends Component {
   };
   onSignin = () => {
     this.setState({ user: getUser() });
-    this.changeActivePage("profile");
+    this.changeActivePage("dashboard");
   };
   onSignIn = () => {
     this.setState({ user: getUser() });
@@ -80,8 +81,9 @@ class App extends Component {
           ) : (
             ""
           )}
-          {activePage === "profile" ? <Profile /> : ""}
-          {activePage === "post" ? <Addpost /> : ""}
+          {activePage === "dashboard" ? <Dashboard /> : ""}
+          {activePage === "addPosts" ? <Addpost /> : ""}
+          {activePage === "testfile" ? <Testfile/> : ""}
         </div>
       </div>
       );

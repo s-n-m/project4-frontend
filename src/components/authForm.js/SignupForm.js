@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import apiUrl from "../../apiConfig";
 import { setUser } from "../../services/AuthService";
-import homeSing from "/Users/weekend/mid/week-12/project4-frontend/react-auth-template/src/imges/testgif.gif";
+import homeSing from "../../imges/hi10.gif";
 
 class SignupForm extends Component {
   state = {
@@ -57,10 +57,10 @@ class SignupForm extends Component {
         ) : (
           ""
         )}
-        <div className="container">
+        <div className="container mmmm">
           <div className="row">
             <img className="col-sm" className="pucHomeSing" src={homeSing} alt="Logo" />
-            <form className="col-sm" onSubmit={this.handleSubmit}>
+            <form className="col-sm nnnn" onSubmit={this.handleSubmit}>
           <div className="form-group">
                 <label className="textUpInput">Email </label>
             <input

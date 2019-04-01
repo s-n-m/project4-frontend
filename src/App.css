@@ -9,6 +9,7 @@
 .pucHomeSing{
     width: 400px;
     height: 500px;
+        border-radius: 14px;
 }
 
 .formSingn{
@@ -16,7 +17,7 @@
     margin: auto !important;
 }
 .textUpInput{
-    margin: 1% auto 1% 21%;
+       margin: 1% auto 1% 12%;
 }
 .buttonPageSing{
         margin: 3% auto auto 45%;
@@ -30,6 +31,146 @@
     border: 1px solid red !important;
     /* color Text */
     color: #00ff2f !important;
-    /* poder coler */
     border-color: #0087ff !important;
 }
+
+
+.mmmm{
+   box-shadow: 1px 3px 24px grey;
+   width: 85%!important;
+    border-radius: 14px;
+}
+
+.nnnn{
+    margin-top: 10%;
+}
+
+.yyyy{
+    margin: 14% auto;
+}
+
+.xxxx{
+    box-shadow: 1px 3px 7px grey;
+    width: 26%!important;
+    border-radius: 9px;
+    margin: 2% 4% 1% 2% !important;
+}
+
+.textInPost{
+    padding: 5px 23px 5px 17px;
+    text-align: center;
+}
+.formChangPas{
+    box-shadow: 1px 3px 24px grey;
+    width: 76%!important;
+    border-radius: 14px;
+    margin: 8% 1% 2% 12% !important;
+    
+}
+
+.changeH1{
+  margin-top: 14%;  
+} 
+
+.butChang{
+        margin: 0% 1% 0% 27%;
+}
+
+.sidebar{
+    font-size:1.75em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* sid bar */
+/* 6
+6
+6
+6
+6
+6
+6
+6 */
+/* 
+
+root{
+    position: "absolute";
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: "hidden"
+  }
+
+   sidebar {
+    zIndex: 2;
+    position: "absolute";
+    top: 0;
+    bottom: 0;
+    transition: "transform .3s ease-out";
+    WebkitTransition: "-webkit-transform .3s ease-out";
+    willChange: "transform";
+    overflowY: "auto"
+  };
+  content {
+    position: "absolute";
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflowY: "auto";
+    WebkitOverflowScrolling: "touch";
+    transition: "left .3s ease-out, right .3s ease-out"
+  };
+  overlay {
+    zIndex: 1;
+    position: "fixed";
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    visibility: "hidden";
+    transition: "opacity .3s ease-out, visibility .3s ease-out";
+    backgroundColor: "rgba(0,0,0,.3)"
+  };
+  dragHandle {
+    zIndex: 1;
+    position: "fixed";
+    top: 0;
+    bottom: 0
+  } */
+/* 
+      z-index: 2;
+    width: 11%;
+    position: absolute;
+    top: 0px;
+    background: #74e24b;
+    bottom: 0px;
+    transition: -webkit-transform 0.3s ease-out 0s;
+    will-change: transform;
+    overflow-y: auto;
+    left: 0px;
+    body: red;
+    transform: translateX(0%);
+    box-shadow: rgb(255, 0, 0) 0px 0px 5px 3px; */
