@@ -8,7 +8,7 @@ import ChangePasswordForm from "./components/authForm.js/ChangePasswordForm";
 import Home from "./components/Home";
 import Dashboard from "./components/Dashboard";
 import Testfile from "./components/testfile";
-import Addpost from "/Users/weekend/mid/week-12/project4-frontend/react-auth-template/src/components/authForm.js/addPost.js"
+import Addpost from "./components/authForm.js/Addpost.js"
 
 class App extends Component {
   constuctor() {
@@ -81,9 +81,18 @@ class App extends Component {
           ) : (
             ""
           )}
+<<<<<<< HEAD
           {activePage === "dashboard" ? <Dashboard /> : ""}
           {activePage === "addPosts" ? <Addpost /> : ""}
           {activePage === "testfile" ? <Testfile/> : ""}
+=======
+          {activePage === "profile" ? <Profile /> : ""}
+          {
+            activePage === "post" ? < Addpost changeActivePage = {
+              this.changeActivePage
+            }
+            /> : ""}
+>>>>>>> addpostpage
         </div>
       </div>
       );
