@@ -5,6 +5,9 @@ export function setUser(user) {
 const delete_cookie = function(name) {
   document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:01 GMT;";
 };
+export function setJwtCookie(token) {
+  document.cookie = `jwt=${token}`;
+}
 
 export function getUser() {
   const user = localStorage.getItem("user");

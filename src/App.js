@@ -7,7 +7,7 @@ import SignupForm from "./components/authForm.js/SignupForm";
 import ChangePasswordForm from "./components/authForm.js/ChangePasswordForm";
 import Home from "./components/Home";
 import Profile from "./components/Profile";
-import Addpost from "/Users/weekend/mid/week-12/project4-frontend/react-auth-template/src/components/authForm.js/addPost.js"
+import Addpost from "./components/authForm.js/Addpost.js"
 
 class App extends Component {
   constuctor() {
@@ -81,7 +81,11 @@ class App extends Component {
             ""
           )}
           {activePage === "profile" ? <Profile /> : ""}
-          {activePage === "post" ? <Addpost /> : ""}
+          {
+            activePage === "post" ? < Addpost changeActivePage = {
+              this.changeActivePage
+            }
+            /> : ""}
         </div>
       </div>
       );

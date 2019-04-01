@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import apiUrl from "../../apiConfig";
+import {setJwtCookie,getUser} from"../../services/AuthService";
 
 class Addpost extends Component {
     state = {
@@ -33,6 +34,8 @@ class Addpost extends Component {
                     err: data.message
                 });
                 else {
+                    setJwtCookie(data.token);
+                    this.props.changeActivePage("home");
                     this.setState({
                         err: null
                     });
@@ -43,8 +46,13 @@ class Addpost extends Component {
             .catch(e => console.log(e));
     };
     handleSubmit = e => {
+        console.log(this.state.formData)
         e.preventDefault();
-        this.handlePostRequest(this.state.formData);
+         if (this.state.formData.location !== null && this.state.formData.type !== null && this.state.formData.gender !== null && this.state.formData.city !== null && this.state.formData.image !== null && this.state.formData.description !== null) {
+        this.handlePostRequest(this.state.formData);}
+        else{
+            alert("complete the empty field");
+        }
     };
 
     handleChange = ({ currentTarget }) => {
@@ -68,38 +76,49 @@ class Addpost extends Component {
                             this.handleChange
                         } />
 
+
                     < label > Type </label>
-                    <input name="type"
+                    < select name = "type"
                         className="form-control"
                         onChange={
-                            this.handleChange} />
-
-                    <label > Gender </label>
-                    <input name="gender"
-                        className="form-control"
-                        onChange={
-                            this.handleChange} />
+                            this.handleChange} >
+                            <option name = "type" > Room </option> 
+                            < option name = "type" > Roommates </option> 
+                            < option name = "type" > Apartment </option> 
+                                </select>
 
 
-                    < label > City </label>
-                    < input name="city"
-                        className="form-control"
-                        onChange={
-                            this.handleChange} />
+
+                     <label > Gender </label>
+                   <select name="gender"
+                       className="form-control"
+                       onChange={
+                           this.handleChange} >
+                           < option  > Female </option>
+                           < option  > Meal </option>
+                           </select>
+
+                   < label > City </label>
+                   <select name="city"
+                       className="form-control"
+                       onChange={
+                           this.handleChange} >
+                           < option name = "city" > - </option>
+                       < option name = "city" > Riyadh </option>
+                           </select>
 
                     < label > Image </label>
-                    < input name="image" type="file"
+                    < input name="image" type="url"
                         className="form-control"
                         onChange={
                             this.handleChange
                         } />
 
-                    <label > Description </label>   <input name="description"
+                    <label > Description </label>   <textarea name="description"
                         className="form-control"
                         onChange={
                             this.handleChange
                         } />
-
 
                 </div>
 

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import apiUrl from "../../apiConfig";
 import { setUser } from "../../services/AuthService";
-import homeSing from "/Users/weekend/mid/week-12/project4-frontend/react-auth-template/src/imges/hi22.gif";
+import homeSing from "../../imges/hi22.gif";
 
 class SigninForm extends Component {
   state = {
