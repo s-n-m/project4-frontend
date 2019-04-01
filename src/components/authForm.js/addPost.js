@@ -37,7 +37,7 @@ class Addpost extends Component {
                 });
                 else {
                     setJwtCookie(data.token);
-                    this.props.changeActivePage("home");
+                    this.props.changeActivePage("dashboard");
                     this.setState({
                         err: null
                     });
@@ -48,13 +48,10 @@ class Addpost extends Component {
             .catch(e => console.log(e));
     };
     handleSubmit = e => {
-        console.log(this.state.formData)
         e.preventDefault();
-         if (this.state.formData.location !== null && this.state.formData.type !== null && this.state.formData.gender !== null && this.state.formData.city !== null && this.state.formData.image !== null && this.state.formData.description !== null) {
-        this.handlePostRequest(this.state.formData);}
-        else{
-            alert("complete the empty field");
-        }
+        //  if (this.state.formData.location !== null && this.state.formData.type !== null && this.state.formData.gender !== null && this.state.formData.city !== null && this.state.formData.image !== null && this.state.formData.description !== null) 
+        this.handlePostRequest(this.state.formData);
+       
     };
 
     handleChange = ({ currentTarget }) => {
@@ -73,14 +70,12 @@ class Addpost extends Component {
                 <div className="form-group" >
 
                     < label > Location </label>
-                    <input name="location" className="form-control"
-                        onChange={
-                            this.handleChange
-                        } />
+                    <input required name="location" className="form-control"
+                        onChange={this.handleChange} />
 
 
                     < label > Type </label>
-                    < select name = "type"
+                    < select required name = "type"
                         className="form-control"
                         onChange={
                             this.handleChange} >
@@ -92,7 +87,7 @@ class Addpost extends Component {
 
 
                      <label > Gender </label>
-                   <select name="gender"
+                   <select required name = "gender"
                        className="form-control"
                        onChange={
                            this.handleChange} >
@@ -101,7 +96,7 @@ class Addpost extends Component {
                            </select>
 
                    < label > City </label>
-                   <select name="city"
+                   <select required name = "city"
                        className="form-control"
                        onChange={
                            this.handleChange} >
@@ -110,13 +105,14 @@ class Addpost extends Component {
                            </select>
 
                     < label > Image </label>
-                    < input name="image" type="url"
+                    < input required name = "image"
+                    type = "url"
                         className="form-control"
                         onChange={
                             this.handleChange
                         } />
 
-                    <label > Description </label>   <textarea name="description"
+                    < label > Description < /label>   <textarea required name="description"
                         className="form-control"
                         onChange={
                             this.handleChange
