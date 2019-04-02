@@ -9,6 +9,8 @@ import Home from "./components/Home";
 import Dashboard from "./components/Dashboard";
 import Testfile from "./components/testfile";
 import Addpost from "./components/authForm.js/addPost.js"
+import Editpost from "./components/EditPost"
+import Singlepost from "./components/singlePost"
 
 class App extends Component {
   constuctor() {
@@ -16,7 +18,9 @@ class App extends Component {
   }
   state = {
     user: null,
-    activePage: "home"
+    activePage: "home",
+    activeBuildingID: null,
+    activeBuilding: null
   };
   componentDidMount() {
     // check if we have a token in the local storage
@@ -37,6 +41,23 @@ class App extends Component {
   changeActivePage = activePage => {
     this.setState({ activePage });
   };
+
+
+changeActiveBulding = activeBuilding =>{
+  console.log("changeActiveBulding")
+  this.setState({activeBuilding});
+  this.changeActivePage("singlePost");
+}
+
+// change to edit post (post_id)
+// store post_id in 
+
+  changeToEditPost = activeBuildingID => {
+    this.setState({ activeBuildingID });
+    this.changeActivePage("editpost");
+  }
+
+
   onSignin = () => {
     this.setState({ user: getUser() });
     this.changeActivePage("dashboard");
@@ -64,6 +85,7 @@ class App extends Component {
           changeActivePage={this.changeActivePage}
           onSignout={this.onSignout} 
           activePage={activePage} />
+
          <div className="container">
           {activePage === "home" ? <Home onSignIn={this.onSignIn} onSignUp={this.onSignUp}/> : ""}
           {activePage === "sign-in" ? (
@@ -81,9 +103,18 @@ class App extends Component {
           ) : (
             ""
           )}
-          {activePage === "dashboard" ? <Dashboard /> : ""}
+          {
+            activePage === "dashboard" ? < Dashboard changeActiveBulding={ this.changeActiveBulding }
+            /> : ""
+          }
           {activePage === "addPosts" ? <Addpost/> : ""}
           {activePage === "testfile" ? <Testfile/> : ""}
+          {
+            activePage === "singlePost" ? (
+              <Singlepost buliding={this.state.activeBuilding} id={this.state.activeBuildingID}changeActivePage={this.changeActivePage} changeToEditPost={this.changeToEditPost}/> ): ""
+          }
+          {activePage === "editpost" ? <Editpost building={this.state.activeBuildingID} changeActivePage={this.changeActivePage}/> : ""}
+
         </div>
       </div>
       );
@@ -93,8 +124,3 @@ class App extends Component {
 
 export default App;
 
-//  {
-//    activePage === "post" ? < Addpost changeActivePage = {
-//      this.changeActivePage
-//    }
-//    /> : ""}
