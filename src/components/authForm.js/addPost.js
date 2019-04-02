@@ -2,7 +2,8 @@
 
 import React, { Component } from "react";
 import apiUrl from "../../apiConfig";
-import {setJwtCookie,getUser} from"../../services/AuthService";
+import { setJwtCookie, getUser } from "../../services/AuthService";
+
 
 class Addpost extends Component {
     state = {
@@ -46,7 +47,7 @@ class Addpost extends Component {
         e.preventDefault();
         //  if (this.state.formData.location !== null && this.state.formData.type !== null && this.state.formData.gender !== null && this.state.formData.city !== null && this.state.formData.image !== null && this.state.formData.description !== null) 
         this.handlePostRequest(this.state.formData);
-       
+
     };
 
     handleChange = ({ currentTarget }) => {
@@ -70,44 +71,44 @@ class Addpost extends Component {
 
 
                     < label > Type </label>
-                    < select required name = "type"
+                    < select required name="type"
                         className="form-control"
                         onChange={
                             this.handleChange} >
-                            <option name = "type" > Room </option> 
-                            < option name = "type" > Roommates </option> 
-                            < option name = "type" > Apartment </option> 
-                                </select>
+                        <option name="type" > Room </option>
+                        < option name="type" > Roommates </option>
+                        < option name="type" > Apartment </option>
+                    </select>
 
 
 
-                     <label > Gender </label>
-                   <select required name = "gender"
-                       className="form-control"
-                       onChange={
-                           this.handleChange} >
-                           < option  > Female </option>
-                           < option  > Meal </option>
-                           </select>
+                    <label > Gender </label>
+                    <select required name="gender"
+                        className="form-control"
+                        onChange={
+                            this.handleChange} >
+                        < option  > Female </option>
+                        < option  > Meal </option>
+                    </select>
 
-                   < label > City </label>
-                   <select required name = "city"
-                       className="form-control"
-                       onChange={
-                           this.handleChange} >
-                           < option name = "city" > - </option>
-                       < option name = "city" > Riyadh </option>
-                           </select>
+                    < label > City </label>
+                    <select required name="city"
+                        className="form-control"
+                        onChange={
+                            this.handleChange} >
+                        < option name="city" > - </option>
+                        < option name="city" > Riyadh </option>
+                    </select>
 
                     < label > Image </label>
-                    < input required name = "image"
-                    type = "url"
+                    < input required name="image"
+                        type="url"
                         className="form-control"
                         onChange={
                             this.handleChange
                         } />
 
-                    < label > Description < /label>   <textarea required name="description"
+                    < label > Description </label>   <textarea required name="description"
                         className="form-control"
                         onChange={
                             this.handleChange

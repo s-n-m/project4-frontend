@@ -8,9 +8,11 @@ import ChangePasswordForm from "./components/authForm.js/ChangePasswordForm";
 import Home from "./components/Home";
 import Dashboard from "./components/Dashboard";
 import Testfile from "./components/testfile";
-import Addpost from "./components/authForm.js/addPost.js"
-import Editpost from "./components/EditPost"
-import Singlepost from "./components/singlePost"
+import Addpost from "./components/authForm.js/addPost.js";
+import Editpost from "./components/EditPost";
+import Singlepost from "./components/singlePost";
+import AboutUs from "./components/aboutUs.js";
+
 
 class App extends Component {
   constuctor() {
@@ -24,9 +26,14 @@ class App extends Component {
   };
   componentDidMount() {
     // check if we have a token in the local storage
+
+
     const user = getUser();
+
+    console.log("componentDidMount", user)
     if (user) {
       this.setState({ user });
+      this.changeActivePage("dashboard");
     }
   }
   //my change
@@ -43,14 +50,14 @@ class App extends Component {
   };
 
 
-changeActiveBulding = activeBuilding =>{
-  console.log("changeActiveBulding")
-  this.setState({activeBuilding});
-  this.changeActivePage("singlePost");
-}
+  changeActiveBulding = activeBuilding => {
+    console.log("changeActiveBulding")
+    this.setState({ activeBuilding });
+    this.changeActivePage("singlePost");
+  }
 
-// change to edit post (post_id)
-// store post_id in 
+  // change to edit post (post_id)
+  // store post_id in 
 
   changeToEditPost = activeBuildingID => {
     this.setState({ activeBuildingID });
@@ -62,18 +69,19 @@ changeActiveBulding = activeBuilding =>{
     this.setState({ user: getUser() });
     this.changeActivePage("dashboard");
   };
-  onSignIn = () => {
-    this.setState({ user: getUser() });
-    this.changeActivePage("sign-in");
-  };
-  onSignUp = () => {
-    this.setState({ user: getUser() });
-    this.changeActivePage("sign-up");
-  };
+  // onSignIn = () => {
+  //   this.setState({ user: getUser() });
+  //   this.changeActivePage("sign-in");
+  // };
+  // onSignUp = () => {
+  //   this.setState({ user: getUser() });
+  //   this.changeActivePage("sign-up");
+  // };
 
   onSignout = () => {
     console.log("sigin out");
     this.setState({ user: null });
+    this.changeActivePage("home");
     Signout();
   };
   render() {
@@ -83,42 +91,42 @@ changeActiveBulding = activeBuilding =>{
         <Nav
           user={user}
           changeActivePage={this.changeActivePage}
-          onSignout={this.onSignout} 
+          onSignout={this.onSignout}
           activePage={activePage} />
 
-         <div className="container">
-          {activePage === "home" ? <Home onSignIn={this.onSignIn} onSignUp={this.onSignUp}/> : ""}
+        <div className="container">
+          {activePage === "home" ? <Home onSignIn={this.onSignIn} onSignUp={this.onSignUp} changeActivePage={this.changeActivePage} /> : ""}
           {activePage === "sign-in" ? (
-            <SigninForm onSignin={this.onSignin} changeActivePage={this.changeActivePage}/>
+            <SigninForm onSignin={this.onSignin} changeActivePage={this.changeActivePage} />
           ) : (
-            ""
-          )}
+              ""
+            )}
           {activePage === "sign-up" ? (
-            <SignupForm onSignin={this.onSignin} changeActivePage={this.changeActivePage}/>
+            <SignupForm onSignin={this.onSignin} changeActivePage={this.changeActivePage} />
           ) : (
-            ""
-          )}
+              ""
+            )}
           {activePage === "change-password" ? (
-            <ChangePasswordForm changeActivePage={this.changeActivePage}  />
+            <ChangePasswordForm changeActivePage={this.changeActivePage} />
           ) : (
-            ""
-          )}
+              ""
+            )}
           {
-            activePage === "dashboard" ? < Dashboard changeActiveBulding={ this.changeActiveBulding }
+            activePage === "dashboard" ? < Dashboard changeActiveBulding={this.changeActiveBulding}
             /> : ""
           }
-          {activePage === "addPosts" ? <Addpost/> : ""}
-          {activePage === "testfile" ? <Testfile/> : ""}
+          {activePage === "addPosts" ? <Addpost /> : ""}
+          {activePage === "testfile" ? <Testfile /> : ""}
           {
             activePage === "singlePost" ? (
-              <Singlepost buliding={this.state.activeBuilding} id={this.state.activeBuildingID}changeActivePage={this.changeActivePage} changeToEditPost={this.changeToEditPost}/> ): ""
+              <Singlepost buliding={this.state.activeBuilding} id={this.state.activeBuildingID} changeActivePage={this.changeActivePage} changeToEditPost={this.changeToEditPost} />) : ""
           }
-          {activePage === "editpost" ? <Editpost building={this.state.activeBuildingID} changeActivePage={this.changeActivePage}/> : ""}
-
+          {activePage === "editpost" ? <Editpost building={this.state.activeBuildingID} changeActivePage={this.changeActivePage} /> : ""}
+          {activePage === "aboutUs" ? <AboutUs /> : ""}
         </div>
       </div>
-      );
-      
+    );
+
   }
 }
 

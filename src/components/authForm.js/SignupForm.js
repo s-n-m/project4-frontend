@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import apiUrl from "../../apiConfig";
-import { setUser } from "../../services/AuthService";
-import homeSing from "../../imges/hi10.gif";
+import { setUser } from "./../../services/AuthService";
+import homeSing from "./../../imges/hi10.gif";
 
 class SignupForm extends Component {
   state = {
@@ -55,33 +55,33 @@ class SignupForm extends Component {
         {this.state.err ? (
           <div className="alert alert-warning"> {this.state.err} </div>
         ) : (
-          ""
-        )}
+            ""
+          )}
         <div className="container mmmm">
           <div className="row">
             <img className="col-sm" className="pucHomeSing" src={homeSing} alt="Logo" />
             <form className="col-sm nnnn" onSubmit={this.handleSubmit}>
-          <div className="form-group">
+              <div className="form-group">
                 <label className="textUpInput">Email </label>
-            <input
-              name="email"
-              className="form-control formSingn"
-              onChange={this.handleChange}
-            />
+                <input
+                  name="email"
+                  className="form-control formSingn"
+                  onChange={this.handleChange}
+                />
                 <label className="textUpInput">Password</label>
-            <input
-              name="password"
-              className="form-control formSingn"
-              type="password"
-              onChange={this.handleChange}
-            />
-              <label className="textUpInput">Password Confirmation</label>
-            <input
-              name="password_confirmation"
-              className="form-control formSingn"
-              type="password"
-              onChange={this.handleChange}
-            />
+                <input
+                  name="password"
+                  className="form-control formSingn"
+                  type="password"
+                  onChange={this.handleChange}
+                />
+                <label className="textUpInput">Password Confirmation</label>
+                <input
+                  name="password_confirmation"
+                  className="form-control formSingn"
+                  type="password"
+                  onChange={this.handleChange}
+                />
                 <label className="textUpInput">Phone Number</label>
                 <input
                   name="phine_number"
@@ -89,17 +89,17 @@ class SignupForm extends Component {
                   type="phone_number"
                   onChange={this.handleChange}
                 />
+              </div>
+
+
+              <button class="col-sm" onClick={() => this.props.changeActivePage("home")} className="cssBtnBack">Back</button>
+              <button type="submit" className="cssBtn ">Register</button>
+
+            </form>
+
+
+
           </div>
-        
-
-          <button onClick={() => this.props.changeActivePage("home")} className="btn btn-primary backButtonSing">Back</button>
-          <button type="submit" className="btn btn-primary ">Register</button>
-              
-        </form>
-
-             
-
-      </div>
         </div>
       </div>
     );

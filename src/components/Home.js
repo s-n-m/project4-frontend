@@ -1,16 +1,19 @@
 import React from "react";
-import imges from "/Users/sara/wdi/projecr4/project4-backend/project4-frontend/src/imges/mm2m.png";
+import imges from "./../imges/mm2m.png";
+
 
 class Home extends React.Component {
-    render(){
-        return (   
+    render() {
+        return (
             <div>
                 <div>
                     <img className="logoStartPage" src={imges} alt="Logo" />
+
                 </div>
                 <div className="towButtonStartPage">
-                    <button className="btn butTwo btn-outline-secondary" onClick={this.props.onSignIn} >Sign In</button> <button className="btn butTwo btn-outline-secondary" onClick={this.props.onSignUp}>Sign Up</button>
+                    <button type="button" className="cssBtn" onClick={() => this.props.changeActivePage("sign-in")} >Sign In</button> <button className="cssBtn" onClick={() => this.props.changeActivePage("sign-up")}>Sign Up</button>
                 </div>
+
             </div >
         )
     }

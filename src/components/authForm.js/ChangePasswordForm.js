@@ -47,31 +47,31 @@ class ChangePasswordForm extends Component {
       <div class="container formChangPas">
         <div class="row">
           <img class="col-sm" className="pucHomeSing" src={picChangePassowrd} alt="Logo" />
-      <div className="pt-5 mt-5  textCangePass">
+          <div className="pt-5 mt-5  textCangePass">
             <h1 className="changeH1">Change Password</h1>
-            <form class="col-sm "onSubmit={this.handleSubmit}>
-          <div className="form-group">
-            <label>Old Password</label>
-            <input
-              name="old"
-              className="form-control"
-              type="password"
-              onChange={this.handleChange}
-            />
-            <label>new Password </label>
-            <input
-              name="new"
-              type="password"
-              className="form-control"
-              onChange={this.handleChange}
-            />
-          </div>
+            <form class="col-sm " onSubmit={this.handleSubmit}>
+              <div className="form-group">
+                <label>Old Password</label>
+                <input
+                  name="old"
+                  className="form-control"
+                  type="password"
+                  onChange={this.handleChange}
+                />
+                <label>new Password </label>
+                <input
+                  name="new"
+                  type="password"
+                  className="form-control"
+                  onChange={this.handleChange}
+                />
+              </div>
 
-              <button type="submit" className="btn btn-primary butChang">Change Password</button>
-          
-        </form>
-      </div>
-      </div>
+              <button type="submit" className="cssBtn butChang">Change Password</button>
+
+            </form>
+          </div>
+        </div>
       </div>
     );
   }
