@@ -7,7 +7,7 @@ import {setJwtCookie,getUser} from"../../services/AuthService";
 class Addpost extends Component {
     state = {
         formData: {
-            location: null,
+            location : null,
             type: null,
             gender: null,
             city: null,
@@ -40,13 +40,8 @@ class Addpost extends Component {
                     this.props.changeActivePage("dashboard");
                     this.setState({
                         err: null
-                    });
-
-
-                }
-            })
-            .catch(e => console.log(e));
-    };
+                    });}})
+            .catch(e => console.log(e));};
     handleSubmit = e => {
         e.preventDefault();
         //  if (this.state.formData.location !== null && this.state.formData.type !== null && this.state.formData.gender !== null && this.state.formData.city !== null && this.state.formData.image !== null && this.state.formData.description !== null) 
@@ -117,11 +112,10 @@ class Addpost extends Component {
                         onChange={
                             this.handleChange
                         } />
-
                 </div>
-
-                <button type="submit" className="btn btn-primary" > Add post </button>
-            </form> </div>
+<button type="submit" className="btn btn-primary" > Add post </button>
+            </form> 
+            </div>
         );
     }
 }
