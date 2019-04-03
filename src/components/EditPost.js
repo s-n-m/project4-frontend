@@ -101,8 +101,6 @@ class Editpost extends Component {
                     <div className=" textInPost" >
                         <div className="form-group" >
 
-                            <label > Email </label>
-                            <input required name="email" className="form-control" value={this.state.formData.email} onChange={this.handleChange} />
 
 
                             <label > Location </label>
@@ -110,15 +108,12 @@ class Editpost extends Component {
 
 
 
-                            <label > Type </label>
                             <select required name="type" className="form-control" onChange={this.handleChange} value={this.state.formData.type}>
                                 < option name="type"  > Room </option>
                                 < option name="type"  > Roommates </option>
                                 < option name="type"  > Apartment </option>
                             </select>
-
-
-
+        <label > Gender </label>
                             <label > Gender </label>
                             < select required name="gender" className="form-control" onChange={this.handleChange} value={this.state.formData.gender} >
                                 <option> Female </option>
