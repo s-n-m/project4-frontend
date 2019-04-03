@@ -17,6 +17,18 @@ class Singlepost extends Component {
         .catch(e => console.log())
     }
     render() {
+        let buttons;
+        if (getUser() !== null && getUser().id === this.props.buliding.user_id) {
+
+            buttons = (
+                <div>
+                    <button className="btn btn-primary" onClick={() => this.props.changeToEditPost(this.props.buliding)} > Edit </button>
+                    <button className="btn btn-primary" onClick={this.DeletePost}> Delete </button>
+                </div>
+                )
+        } else {
+            buttons = ""
+        }
         return ( 
         <div className = "pt-5 mt-5" > 
                    
@@ -29,8 +41,7 @@ class Singlepost extends Component {
                     < p > City: {this.props.buliding.city} </p> 
                     < p > description: { this.props.buliding.description} </p> 
                    </div>
-                <button className="btn btn-primary" onClick={() => this.props.changeToEditPost(this.props.buliding)} > Edit </button>
-                <button className="btn btn-primary"  onClick={this.DeletePost}> Delete </button>
+                    {buttons}
 
                    </div>
             </div> 

@@ -18,7 +18,7 @@ class Addpost extends Component {
         err: null
     };
 
-    handlePostRequest = user => {
+    handlePostRequest = building => {
         let url = `${apiUrl}/building`;
 
         console.log(url);
@@ -29,7 +29,7 @@ class Addpost extends Component {
             headers: {
                 "Content-type": "application/json"
             },
-            body: JSON.stringify(user)
+            body: JSON.stringify({building: building})
         })
             .then(res => res.json())
             .then(data => {
@@ -88,7 +88,7 @@ class Addpost extends Component {
                         onChange={
                             this.handleChange} >
                         < option  > Female </option>
-                        < option  > Meal </option>
+                        < option  > Male </option>
                     </select>
 
                     < label > City </label>

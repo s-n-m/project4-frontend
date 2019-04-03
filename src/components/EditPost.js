@@ -114,7 +114,7 @@ class Editpost extends Component {
         <label > Gender </label>
          < select required name = "gender"className = "form-control" onChange = { this.handleChange} value = {this.state.formData.gender } >
         <option> Female </option> 
-        <option> Meal </option>
+         <option> Male </option>
          </select>
 
         <label> City </label>
