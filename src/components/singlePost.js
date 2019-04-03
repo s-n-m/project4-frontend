@@ -17,7 +17,21 @@ class Singlepost extends Component {
             .catch(e => console.log())
     }
     render() {
+        let buttons;
+        if (getUser() !== null && getUser().id === this.props.buliding.user_id) {
+
+            buttons = (
+                <div>
+                    <button className="editButCss" onClick={() => this.props.changeToEditPost(this.props.buliding)} > Edit </button>
+                    <button className="delButCss" onClick={this.DeletePost} onClick={() => this.props.changeActivePage("dashboard")}> Delete </button>
+                </div>
+            )
+        } else {
+            buttons = ""
+        }
+
         return (
+          
             <div className="pt-5 mt-5" >
 
                 <div className="container pageInfoDashbord " >
@@ -31,12 +45,14 @@ class Singlepost extends Component {
                         <p className="borderWide" > City: {this.props.buliding.city} </p>
                         <br></br>
                         <p className="borderWide" > description: {this.props.buliding.description} </p>
+                        < p > email: {this.props.buliding.User.email} </p> 
                     </div>
                     <div className="EditDelete">
                         <button className="cssBtnBackSingle" onClick={() => this.props.changeActivePage("dashboard")}> Back </button>
-                        <button className="editButCss" onClick={() => this.props.changeToEditPost(this.props.buliding)} > Edit </button>
-                        <button className="delButCss" onClick={this.DeletePost} onClick={() => this.props.changeActivePage("dashboard")}> Delete </button>
+                        {buttons}
                     </div>
+
+     
 
                 </div>
             </div>
