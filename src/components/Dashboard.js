@@ -28,6 +28,7 @@ class Dashboard extends Component {
                     err: data.message
                 });
                 else {
+                    // setJwtCookie(data.token);
                     console.log(data)
                     this.setState({
                         buildings: data.buildings,
@@ -95,6 +96,7 @@ class Dashboard extends Component {
                                 <p className="textCityDashbord" key={index + 'city'}> City:{building.city}</p>
                                 <p className="textGenderDashbord" key={index + 'gender'}> Gender:{building.gender}</p>
                                 {/* <p key={index + 'description'}> description:{building.description}</p> */}
+                        <p key={index + 'email '}> Email:{building.User.email}</p>
                             </div>
                         </div>
                     </div>
