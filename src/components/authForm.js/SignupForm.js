@@ -59,7 +59,7 @@ class SignupForm extends Component {
           )}
         <div className="container mmmm">
           <div className="row">
-            <img className="col-sm" className="pucHomeSing" src={homeSing} alt="Logo" />
+            <img className="col-sm" className="pucHomeSingup" src={homeSing} alt="Logo" />
             <form className="col-sm nnnn" onSubmit={this.handleSubmit}>
               <div className="form-group">
                 <label className="textUpInput">Email </label>
