@@ -23,7 +23,7 @@ class Dashboard extends Component {
                     err: data.message
                 });
                 else {
-                    setJwtCookie(data.token);
+                    console.log(data)
                     this.setState({
                         buildings: data.buildings
                     });
@@ -38,16 +38,16 @@ class Dashboard extends Component {
         return (
             <div className="pt-5 mt-5">
                 {this.state.buildings.map((building, index) => (
-                    <div className="bulidings"
+                    <div className="bulidingsDashbord xxxx"
                         onClick={() => { console.log(this.props); this.props.changeActiveBulding(building) }} >
-                        < div className="container xxxx " >
-                            < div className="row textInPost" >
-                                < img key={index + 'type'} src={building.image} />
+                        {/* < div className="container xxxx " > */}
+                        < div className="rowDahbord textInPost" >
+                            <div class="columnDashbord">
+                                < img className="imageDashbord" key={index + 'type'} src={building.image} />
                                 {/* <p key={index+ 'location'}> Location: {building.location}</p>
-                       <p key={index + 'type'} > Type: {building.type}</p>
-                       
-                       <p key={index + 'gender'}> Gender:{building.gender}</p> */}
-                                <p key={index + 'city'}> City:{building.city}</p>
+                                 <p key={index + 'type'} > Type: {building.type}</p>  */}
+                                <p className="textCityDashbord" key={index + 'city'}> City:{building.city}</p>
+                                <p className="textGenderDashbord" key={index + 'gender'}> Gender:{building.gender}</p>
                                 {/* <p key={index + 'description'}> description:{building.description}</p> */}
                             </div>
                         </div>

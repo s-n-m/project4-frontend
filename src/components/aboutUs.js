@@ -1,17 +1,19 @@
 import React from "react";
-import picAboutUs from "./../imges/teeeeesst.jpg";
+import aboutUs1 from "./../imges/aboutUs1.png";
+import aboutUs2 from "./../imges/aboutUs2.png";
+import aboutUs3 from "./../imges/AaboutUs3.png";
 
 
 const AboutUs = () =>
     <div >
         <div>
 
-            <img className="logoStartPage" src={picAboutUs} alt="Logo" />
-        </div>
-        <div >
-            <img className="logoStartPage" src={picAboutUs} alt="Logo" />
+            <img className="logoStartPage" src={aboutUs1} alt="Logo" />
+            <img className="logoStartPage" src={aboutUs2} alt="Logo" />
+            <img className="logoStartPage" src={aboutUs3} alt="Logo" />
 
         </div>
+
     </div>
 
 

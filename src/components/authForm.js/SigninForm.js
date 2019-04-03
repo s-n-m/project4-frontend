@@ -60,7 +60,7 @@ class SigninForm extends Component {
 
         <div class="container mmmm">
           <div class="row">
-            <img class="col-sm" className="pucHomeSing" src={homeSing} alt="Logo" />
+            <img class="col-sm" className="pucHomeSingin" src={homeSing} alt="Logo" />
             <form class="col-sm yyyy" onSubmit={this.handleSubmit}>
               <div className="form-group">
                 <label className="textUpInput" >Email </label>

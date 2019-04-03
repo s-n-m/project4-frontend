@@ -1,6 +1,6 @@
-import React, { Component} from "react";
+import React, { Component } from "react";
 import apiUrl from "../apiConfig";
-import {setJwtCookie,getUser} from "../services/AuthService";
+import { setJwtCookie, getUser } from "../services/AuthService";
 
 class Editpost extends Component {
     state = {
@@ -19,13 +19,13 @@ class Editpost extends Component {
         let url = `${apiUrl}/building/${this.props.building.id}`;
         console.log(url);
         fetch(url, {
-                mode: "cors",
-                credentials: "include",
-                method: "GET",
-                headers: {
-                    "Content-type": "application/json"
-                },
-            })
+            mode: "cors",
+            credentials: "include",
+            method: "GET",
+            headers: {
+                "Content-type": "application/json"
+            },
+        })
             .then(res => res.json())
             .then(data => {
                 if (data.status > 299) this.setState({
@@ -53,14 +53,14 @@ class Editpost extends Component {
 
         console.log(url);
         fetch(url, {
-                mode: "cors",
-                credentials: "include",
-                method: "PUT",
-                headers: {
-                    "Content-type": "application/json"
-                },
-                body: JSON.stringify({ building})
-            })
+            mode: "cors",
+            credentials: "include",
+            method: "PUT",
+            headers: {
+                "Content-type": "application/json"
+            },
+            body: JSON.stringify({ building })
+        })
             .then(res => res.json())
             .then(data => {
                 if (data.status > 200) this.setState({
@@ -83,7 +83,8 @@ class Editpost extends Component {
     };
 
     handleChange = (
-        {currentTarget}) => {const formData = { ...this.state.formData};
+        { currentTarget }) => {
+        const formData = { ...this.state.formData };
         formData[currentTarget.name] = currentTarget.value;
         this.setState({
             formData
@@ -91,58 +92,68 @@ class Editpost extends Component {
     };
 
     render() {
-            return ( <div className = "pt-5 mt-5" >
-                <h1 > Edit Post </h1> {this.state.err ? (<div className="alert alert-danger" > {this.state.err} </div > ): ("")
-        }
+        return (<div className="pt-5 mt-5" >
+            <h1 className="h1Addpost"> Edit Post </h1> {this.state.err ? (<div className="alert alert-danger" > {this.state.err} </div >) : ("")
+            }
 
-        <form onSubmit = {this.handleSubmit} >
-        <div className = "form-group" >
+            <form onSubmit={this.handleSubmit} >
+                <div className=" pageInfoDashbord " >
+                    <div className=" textInPost" >
+                        <div className="form-group" >
 
-        <label > Location </label> 
-        <input required name = "location" className = "form-control" value ={this.state.formData.location} onChange = {this.handleChange}/>
+                            <label > Email </label>
+                            <input required name="email" className="form-control" value={this.state.formData.email} onChange={this.handleChange} />
 
 
-    <label > Type </label> 
-                        <select required name="type" className="form-control" onChange={this.handleChange} value={this.state.formData.type}>
-        < option name = "type"  > Room </option>  
-        < option name = "type"  > Roommates </option> 
-         < option name = "type"  > Apartment </option> 
-          </select>
+                            <label > Location </label>
+                            <input required name="location" className="form-control" value={this.state.formData.location} onChange={this.handleChange} />
 
 
 
-        <label > Gender </label>
-         < select required name = "gender"className = "form-control" onChange = { this.handleChange} value = {this.state.formData.gender } >
-        <option> Female </option> 
-        <option> Meal </option>
-         </select>
-
-        <label> City </label>
-         < select required name = "city" className = "form-control" onChange = { this.handleChange} value = {this.state.formData.city} >
-            <option name = "city" > - </option>
-             <option name = "city" > Riyadh </option> 
-            </select>
+                            <label > Type </label>
+                            <select required name="type" className="form-control" onChange={this.handleChange} value={this.state.formData.type}>
+                                < option name="type"  > Room </option>
+                                < option name="type"  > Roommates </option>
+                                < option name="type"  > Apartment </option>
+                            </select>
 
 
-            <label > Image </label> 
-            < input required name = "image"
-            type = "url"
-            className = "form-control"
-            onChange = {this.handleChange }value = {this.state.formData.image }/>
 
-    <label > Description </label>   
-    < textarea required name = "description"
-    className = "form-control"
-    onChange = {this.handleChange }value = {this.state.formData.description}/>
+                            <label > Gender </label>
+                            < select required name="gender" className="form-control" onChange={this.handleChange} value={this.state.formData.gender} >
+                                <option> Female </option>
+                                <option> Meal </option>
+                            </select>
 
-    </div> 
+                            <label> City </label>
+                            < select required name="city" className="form-control" onChange={this.handleChange} value={this.state.formData.city} >
+                                <option name="city" > - </option>
+                                <option name="city" > Riyadh </option>
+                            </select>
 
-    <button type = "submit" className = "btn btn-primary" > Edit post </button> 
 
-    </form> 
-    </div >
-);
-}
+                            <label > Image </label>
+                            < input required name="image"
+                                type="url"
+                                className="form-control"
+                                onChange={this.handleChange} value={this.state.formData.image} />
+
+                            <label > Description </label>
+                            < textarea required name="description"
+                                className="form-control"
+                                onChange={this.handleChange} value={this.state.formData.description} />
+
+                        </div>
+                    </div>
+                </div>
+
+                <button className="cssBtnBackEdit" onClick={() => this.props.changeActivePage("singlePost")}> Back </button>    <button type="submit" className="cssBtnEditPost" > Edit post </button>
+
+
+            </form>
+        </div >
+        );
+    }
 }
 
 export default Editpost;

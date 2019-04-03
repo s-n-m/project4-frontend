@@ -87,7 +87,7 @@ class App extends Component {
   render() {
     const { user, activePage } = this.state;
     return (
-      <div>
+      <div class="app-container">
         <Nav
           user={user}
           changeActivePage={this.changeActivePage}
@@ -115,7 +115,7 @@ class App extends Component {
             activePage === "dashboard" ? < Dashboard changeActiveBulding={this.changeActiveBulding}
             /> : ""
           }
-          {activePage === "addPosts" ? <Addpost /> : ""}
+          {activePage === "addPosts" ? <Addpost changeActivePage={this.changeActivePage} /> : ""}
           {activePage === "testfile" ? <Testfile /> : ""}
           {
             activePage === "singlePost" ? (
