@@ -29,7 +29,7 @@ class Addpost extends Component {
             headers: {
                 "Content-type": "application/json"
             },
-            body: JSON.stringify({building: building})
+            body: JSON.stringify({ building: building })
         })
             .then(res => res.json())
             .then(data => {
@@ -68,9 +68,9 @@ class Addpost extends Component {
             <form onSubmit={this.handleSubmit} >
                 <div className="form-group" >
                     < div className="container infoAddPost " >
-                     
 
-                        < label > Location </label>
+
+                        < label > Address </label>
                         <input required name="location" className="form-control"
                             onChange={this.handleChange} />
 
@@ -80,6 +80,7 @@ class Addpost extends Component {
                             className="form-control"
                             onChange={
                                 this.handleChange} >
+                            <option name="type" > - </option>
                             <option name="type" > Room </option>
                             < option name="type" > Roommates </option>
                             < option name="type" > Apartment </option>
@@ -92,6 +93,7 @@ class Addpost extends Component {
                             className="form-control"
                             onChange={
                                 this.handleChange} >
+                            < option  > - </option>
                             < option  > Male </option>
                             < option  > Female </option>
                         </select>

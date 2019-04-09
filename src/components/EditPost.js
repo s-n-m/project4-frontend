@@ -101,19 +101,15 @@ class Editpost extends Component {
                     <div className=" textInPost" >
                         <div className="form-group" >
 
-
-
                             <label > Location </label>
                             <input required name="location" className="form-control" value={this.state.formData.location} onChange={this.handleChange} />
-
-
 
                             <select required name="type" className="form-control" onChange={this.handleChange} value={this.state.formData.type}>
                                 < option name="type"  > Room </option>
                                 < option name="type"  > Roommates </option>
                                 < option name="type"  > Apartment </option>
                             </select>
-        <label > Gender </label>
+                            <label > Gender </label>
                             <label > Gender </label>
                             < select required name="gender" className="form-control" onChange={this.handleChange} value={this.state.formData.gender} >
                                 <option> Female </option>

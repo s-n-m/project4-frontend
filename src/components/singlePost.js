@@ -13,7 +13,10 @@ class Singlepost extends Component {
                 "Content-type": "application/json"
             }
         }).then(d => d.json())
-            .then(d => console.log())
+            .then(d => {
+                this.props.changeActivePage("dashboard")
+                console.log()
+            })
             .catch(e => console.log())
     }
     render() {
@@ -22,16 +25,21 @@ class Singlepost extends Component {
 
             buttons = (
                 <div>
+                    <button className="cssBtnBackSingle" onClick={() => this.props.changeActivePage("dashboard")}> Back </button>
                     <button className="editButCss" onClick={() => this.props.changeToEditPost(this.props.buliding)} > Edit </button>
-                    <button className="delButCss" onClick={this.DeletePost} onClick={() => this.props.changeActivePage("dashboard")}> Delete </button>
+                    <button className="delButCss" onClick={this.DeletePost}> Delete </button>
                 </div>
             )
         } else {
-            buttons = ""
+            buttons = (
+                <div>
+                    <button className="cssBtnBackSingleElse" onClick={() => this.props.changeActivePage("dashboard")}> Back </button>
+                </div>
+            )
         }
 
         return (
-          
+
             <div className="pt-5 mt-5" >
 
                 <div className="container pageInfoDashbord " >
@@ -45,14 +53,14 @@ class Singlepost extends Component {
                         <p className="borderWide" > City: {this.props.buliding.city} </p>
                         <br></br>
                         <p className="borderWide" > description: {this.props.buliding.description} </p>
-                        < p > email: {this.props.buliding.User.email} </p> 
+                        < p className="borderWide" > email: {this.props.buliding.User.email} </p>
                     </div>
                     <div className="EditDelete">
-                        <button className="cssBtnBackSingle" onClick={() => this.props.changeActivePage("dashboard")}> Back </button>
+
                         {buttons}
                     </div>
 
-     
+
 
                 </div>
             </div>

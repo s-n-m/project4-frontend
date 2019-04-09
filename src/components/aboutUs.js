@@ -6,7 +6,7 @@ import aboutUs3 from "./../imges/AaboutUs3.png";
 
 const AboutUs = () =>
     <div >
-        <div>
+        <div className="butDown">
 
             <img className="logoStartPage" src={aboutUs1} alt="Logo" />
             <img className="logoStartPage" src={aboutUs2} alt="Logo" />
