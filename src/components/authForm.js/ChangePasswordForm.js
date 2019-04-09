@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import apiUrl from "../../apiConfig";
 import { getUser } from "../../services/AuthService";
-import picChangePassowrd from "../../imges/sucrity.gif"
+import picChangePassowrd from "../../imges/changNahed.png"
+
 class ChangePasswordForm extends Component {
   state = {
     formData: {
@@ -44,34 +45,34 @@ class ChangePasswordForm extends Component {
 
   render() {
     return (
-      <div class="container formChangPas">
+      <div class="  formChnge formChangPas">
         <div class="row">
-          <img class="col-sm" className="pucHomeSing" src={picChangePassowrd} alt="Logo" />
-      <div className="pt-5 mt-5  textCangePass">
-            <h1 className="changeH1">Change Password</h1>
-            <form class="col-sm "onSubmit={this.handleSubmit}>
-          <div className="form-group">
-            <label>Old Password</label>
-            <input
-              name="old"
-              className="form-control"
-              type="password"
-              onChange={this.handleChange}
-            />
-            <label>new Password </label>
-            <input
-              name="new"
-              type="password"
-              className="form-control"
-              onChange={this.handleChange}
-            />
-          </div>
+          <img class="col-sm" className="pucHomeSing" src={picChangePassowrd} alt="Logod" />
+          <div className="  textCangePass">
+            <h1 className="changeH1 h1Addpost">Change Password</h1>
+            <form class="col-sm " onSubmit={this.handleSubmit}>
+              <div className="form-group">
+                <label>Old Password</label>
+                <input
+                  name="old"
+                  className="form-control"
+                  type="password"
+                  onChange={this.handleChange}
+                />
+                <label>new Password </label>
+                <input
+                  name="new"
+                  type="password"
+                  className="form-control"
+                  onChange={this.handleChange}
+                />
+              </div>
 
-              <button type="submit" className="btn btn-primary butChang">Change Password</button>
-          
-        </form>
-      </div>
-      </div>
+              <button type="submit" className="cssBtn butChang">Change Password</button>
+
+            </form>
+          </div>
+        </div>
       </div>
     );
   }

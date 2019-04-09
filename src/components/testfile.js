@@ -8,43 +8,47 @@ import '@trendmicro/react-sidenav/dist/react-sidenav.css';
 import React from "react";
 
 const Testfile = () =>
- 
-    
-    <SideNav
-    onSelect={(selected) => {
-        // Add your code here
-    }}
->
-    <SideNav.Toggle />
-    <SideNav.Nav defaultSelected="home">
-        <NavItem eventKey="home">
-            <NavIcon>
-                <i className="fa fa-fw fa-home  sidebar"  />
-            </NavIcon>
-            <NavText>
-                Home
+
+
+    <SideNav onSelect={(selected) => {
+            // Add your code here
+        }}
+    >
+        <SideNav.Toggle />
+        <SideNav.Nav defaultSelected="home">
+
+
+            <NavItem eventKey="home">
+                <NavIcon>
+                    <i className="fa fa-fw fa-home  sidebar" />
+                </NavIcon>
+                <NavText>
+                    Home
             </NavText>
-        </NavItem>
-        <NavItem eventKey="charts">
-            <NavIcon>
+            </NavItem>
+
+
+            <NavItem eventKey="charts">
+                <NavIcon>
                     <i className="fa fa-fw fa-line-chart sidebar" />
-            </NavIcon>
-            <NavText>
-                ⚙️ settings
+                </NavIcon>
+                <NavText>
+                    ⚙️ settings
             </NavText>
-            <NavItem eventKey="charts/linechart">
-                <NavText>
-                   Change Pasword
+            
+                <NavItem eventKey="charts/linechart">
+                    <NavText>
+                        Change Pasword
                 </NavText>
-            </NavItem>
-            <NavItem eventKey="charts/barchart">
-                <NavText>
-                    profile
+                </NavItem>
+                <NavItem eventKey="charts/barchart">
+                    <NavText>
+                        profile
                 </NavText>
+                </NavItem>
             </NavItem>
-        </NavItem>
-    </SideNav.Nav>
-</SideNav>
+        </SideNav.Nav>
+    </SideNav>
 
 
 

@@ -2,7 +2,8 @@
 
 import React, { Component } from "react";
 import apiUrl from "../../apiConfig";
-import {setJwtCookie,getUser} from"../../services/AuthService";
+import { setJwtCookie, getUser } from "../../services/AuthService";
+
 
 class Addpost extends Component {
     state = {
@@ -17,7 +18,7 @@ class Addpost extends Component {
         err: null
     };
 
-    handlePostRequest = user => {
+    handlePostRequest = building => {
         let url = `${apiUrl}/building`;
 
         console.log(url);
@@ -28,7 +29,7 @@ class Addpost extends Component {
             headers: {
                 "Content-type": "application/json"
             },
-            body: JSON.stringify(user)
+            body: JSON.stringify({ building: building })
         })
             .then(res => res.json())
             .then(data => {
@@ -41,8 +42,6 @@ class Addpost extends Component {
                     this.setState({
                         err: null
                     });
-
-
                 }
             })
             .catch(e => console.log(e));
@@ -51,7 +50,7 @@ class Addpost extends Component {
         e.preventDefault();
         //  if (this.state.formData.location !== null && this.state.formData.type !== null && this.state.formData.gender !== null && this.state.formData.city !== null && this.state.formData.image !== null && this.state.formData.description !== null) 
         this.handlePostRequest(this.state.formData);
-       
+
     };
 
     handleChange = ({ currentTarget }) => {
@@ -64,64 +63,68 @@ class Addpost extends Component {
 
     render() {
         return (<div className="pt-5 mt-5" >
-            <h1> Post </h1> {this.state.err ? (<div className="alert alert-danger" > {this.state.err} </div>) : ("")}
+            <h1 className="h1Addpost"> Add New Post </h1> {this.state.err ? (<div className="alert alert-danger" > {this.state.err} </div>) : ("")}
 
             <form onSubmit={this.handleSubmit} >
                 <div className="form-group" >
-
-                    < label > Location </label>
-                    <input required name="location" className="form-control"
-                        onChange={this.handleChange} />
+                    < div className="container infoAddPost " >
 
 
-                    < label > Type </label>
-                    < select required name = "type"
-                        className="form-control"
-                        onChange={
-                            this.handleChange} >
-                            <option name = "type" > Room </option> 
-                            < option name = "type" > Roommates </option> 
-                            < option name = "type" > Apartment </option> 
-                                </select>
+                        < label > Address </label>
+                        <input required name="location" className="form-control"
+                            onChange={this.handleChange} />
+
+
+                        < label > Type </label>
+                        < select required name="type"
+                            className="form-control"
+                            onChange={
+                                this.handleChange} >
+                            <option name="type" > - </option>
+                            <option name="type" > Room </option>
+                            < option name="type" > Roommates </option>
+                            < option name="type" > Apartment </option>
+                        </select>
 
 
 
-                     <label > Gender </label>
-                   <select required name = "gender"
-                       className="form-control"
-                       onChange={
-                           this.handleChange} >
-                           < option  > Female </option>
-                           < option  > Meal </option>
-                           </select>
+                        <label > Gender </label>
+                        <select required name="gender"
+                            className="form-control"
+                            onChange={
+                                this.handleChange} >
+                            < option  > - </option>
+                            < option  > Male </option>
+                            < option  > Female </option>
+                        </select>
 
-                   < label > City </label>
-                   <select required name = "city"
-                       className="form-control"
-                       onChange={
-                           this.handleChange} >
-                           < option name = "city" > - </option>
-                       < option name = "city" > Riyadh </option>
-                           </select>
+                        < label > City </label>
+                        <select required name="city"
+                            className="form-control"
+                            onChange={
+                                this.handleChange} >
+                            < option name="city" > - </option>
+                            < option name="city" > Riyadh </option>
+                        </select>
 
-                    < label > Image </label>
-                    < input required name = "image"
-                    type = "url"
-                        className="form-control"
-                        onChange={
-                            this.handleChange
-                        } />
+                        < label > Image </label>
+                        < input required name="image"
+                            type="url"
+                            className="form-control"
+                            onChange={
+                                this.handleChange
+                            } />
 
-                    < label > Description < /label>   <textarea required name="description"
-                        className="form-control"
-                        onChange={
-                            this.handleChange
-                        } />
-
+                        < label > Description </label>   <textarea required name="description"
+                            className="form-control"
+                            onChange={
+                                this.handleChange
+                            } />
+                    </div>
                 </div>
-
-                <button type="submit" className="btn btn-primary" > Add post </button>
-            </form> </div>
+                <button type="submit" className="cssBtnAddPost" > Add post </button>
+            </form>
+        </div>
         );
     }
 }

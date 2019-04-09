@@ -47,8 +47,8 @@ class SigninForm extends Component {
     formData[currentTarget.name] = currentTarget.value;
     this.setState({ formData });
   };
-  
-  
+
+
   render() {
     return (
       <div className="pt-5 mt-5">
@@ -57,36 +57,38 @@ class SigninForm extends Component {
         ) : (
             ""
           )}
-          
+
         <div class="container mmmm">
           <div class="row">
-            <img class="col-sm" className="pucHomeSing" src={homeSing} alt="Logo" />
+            <img class="col-sm" className="pucHomeSingin" src={homeSing} alt="Logo" />
             <form class="col-sm yyyy" onSubmit={this.handleSubmit}>
-            <div className="form-group">
+              <div className="form-group">
                 <label className="textUpInput" >Email </label>
-              <input
-                name="email"
-                className="form-control formSingn"
-                onChange={this.handleChange}
-              />
+                <input
+                  name="email"
+                  className="form-control formSingn"
+                  onChange={this.handleChange}
+                />
                 <label className="textUpInput" >Password</label>
-              <input
-                name="password"
-                className="formSingn form-control "
-                type="password"
-                onChange={this.handleChange}
-              />
-            </div>
+                <input
+                  name="password"
+                  className="formSingn form-control "
+                  type="password"
+                  onChange={this.handleChange}
+                />
+              </div>
               <div class="container">
                 <div class="row">
-                  <button class="col-sm" onClick={() => this.props.changeActivePage("home")} className="btn btn-primary backButtonSing">Back</button>
-                  <button class="col-sm" type="submit" className="btn btn-primary twoButtonSing ">Sing In</button>
+
+                  <button class="col-sm" onClick={() => this.props.changeActivePage("home")} className="cssBtnBack">Back</button>
+                  <button class="col-sm" type="submit" className="cssBtn twoButtonSing">Sign In</button>
+                  {/* <button class="col-sm"  className="btn btn-primary twoButtonSing ">Sing In</button> */}
                 </div>
               </div>
-          </form>
+            </form>
+          </div>
+
         </div>
-  
-</div>
       </div>
     );
   }
